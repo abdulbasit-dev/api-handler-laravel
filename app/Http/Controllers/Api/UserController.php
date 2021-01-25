@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -14,7 +14,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        return "all post";
+        $user = auth("api")->user();
+        return response()->json([
+            "total_result" =>  count($user->posts),
+            "data" => $user->posts,
+        ]);
     }
 
     /**

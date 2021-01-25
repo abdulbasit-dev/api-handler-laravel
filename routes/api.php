@@ -11,6 +11,6 @@ use Illuminate\Support\Facades\Route;
 Route::post("/login", "Api\AuthController@login");
 
 Route::group(['middleware' => ['jwt.auth']], function () {
-    Route::get("/my_post", "Api\UserController@index");
+    Route::get("/my_posts", "Api\UserController@index");
     Route::get("/logout", "Api\AuthController@logout");
 });
