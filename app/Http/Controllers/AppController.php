@@ -1,13 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Http\Resources\UserResource;
-use App\User;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class AppController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,14 +13,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::latest()->get();
-        return response()->json([
-            "total_result" => count($users),
-            "data" => UserResource::collection($users)
-        ]);
+        return "it work";
     }
-
-
 
     /**
      * Show the form for creating a new resource.
@@ -54,16 +45,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
-
-        if (!$user)
-            return response()->json([
-                "message" => "user not found"
-            ], 404);
-
-        return response()->json([
-            "user" => $user
-        ]);
+        //
     }
 
     /**

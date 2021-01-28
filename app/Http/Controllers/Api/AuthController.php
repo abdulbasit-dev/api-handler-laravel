@@ -32,8 +32,8 @@ class AuthController extends Controller
         }
 
         return response()->json([
-            "access_token" => $token,
-            "expire_in" => auth("api")->factory()->getTTL() * 3600
+            "expire_in" => auth("api")->factory()->getTTL() * 3600,
+            "access_token" => $token
         ]);
     }
 
